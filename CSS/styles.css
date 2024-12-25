@@ -1,0 +1,642 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    transition: background-color 0.5s ease;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+body.background-swapped {
+    background-color: rgba(14, 14, 14, 0.92); /* 切换后的背景颜色 */
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+
+/*主页面布置*/
+.poster {
+    display: flex;
+    position: relative;
+    height: 1279px;
+    width: 100%;
+    background-size: cover;
+}
+
+/* 头部栏 :start */
+.header_bar {
+    background-color: rgba(17, 17, 17, 0.78);
+    position: fixed;
+    top: 0;
+    height: 70px;
+    line-height: 70px;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+}
+
+/* 头部导航栏左侧 */
+.header_left {
+    font-size: 50px;
+    width: 400px;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: 0.8;
+
+}
+
+.header_left span {
+    display: block;
+    text-align: center;
+    color: #0e0ea1;
+}
+
+/* 头部导航栏 nav*/
+.header_navbar {
+    display: flex;
+    width: 500px;
+    line-height: 70px;
+    height: 70px;
+
+}
+
+.header_navbar ul {
+    display: flex;
+    line-height: 70px;
+    list-style-type: none; /* 移除列表项符号 */
+
+}
+
+.header_navbar li {
+    display: flex;
+    line-height: 70px;
+    float: left; /* 使列表项水平排列 */
+}
+
+.header_navbar li a {
+    font-size: 24px;
+    color: rgb(204, 204, 204);
+    text-decoration: none;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* 头部导航栏右侧 */
+.header_right {
+    display: flex;
+    height: 70px;
+    width: 730px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header_login {
+    display: flex;
+    height: 70px;
+    width: 100px;
+}
+
+.header_bar a {
+    font-size: 24px;
+    color: rgb(204, 204, 204);
+    text-decoration: none;
+    padding: 0 20px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* 导航栏窗口字体鼠标接触特效 */
+.header_bar a:hover {
+    background-color: rgba(235, 241, 237, 0.07);
+    color: #34a5c8;
+}
+
+.header_right a:hover {
+    color: #2dbed1;
+}
+
+/*导航栏中的深色模式按钮*/
+.button {
+    cursor: pointer;
+    height: 70px;
+    width: 70px;
+    display: block;
+    color: white;
+    border-radius: 45px;
+    background-color: #2a8cb6;
+    font-size: 12px;
+}
+
+.button.clicked {
+    background-color: #111212; /* 更换后的颜色 */
+    color: white; /* 更换后的文字颜色 */
+}
+
+.content {
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    font-family: 宋体, serif;
+    font-size: 28px;
+    top: 400px;
+    color: #2a8cb6;
+    animation: slideUp 2.5s ease-in-out forwards;
+}
+
+.explore {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    justify-items: center;
+    font-size: 28px;
+    height: 50px;
+    width: 100px;
+    border-radius: 15px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #111212;
+    border: none;
+}
+
+.explore a:hover {
+    color: #031fd5;
+}
+
+.header_footer {
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(15, 16, 15);
+    justify-content: center;
+    justify-items: center;
+}
+
+/*自适应导航栏*/
+.nav-toggle {
+    display: none; /* 默认隐藏checkbox，不变*/
+}
+
+.menu-icon {
+    display: none; /* 默认隐藏菜单图标，仅在小屏幕显示 */
+    font-size: 24px;
+    cursor: pointer;
+    color: rgb(204, 204, 204);
+    opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+    .header_left {
+        font-size: 30px;
+        width: 100px;
+        font-weight: bold;
+        text-decoration: none;
+        opacity: 0.8;
+
+    }
+
+    .header_navbar ul {
+        display: none;
+        position: relative;
+        top: 70px;
+        right: 110px;
+    }
+
+    .header_navbar ul {
+        flex-direction: column; /* 垂直排列 */
+        display: none; /* 隐藏列表，直到点击菜单图标 */
+    }
+
+    .header_navbar li {
+        width: 100%;
+        line-height: 70px;
+        background-color: rgba(15, 16, 15, 0.65);
+    }
+
+    .header_navbar li a {
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: block; /* 在小屏幕上显示菜单图标 */
+    }
+
+    input[type="checkbox"]:checked ~ .header_navbar ul {
+        display: block; /* 当复选框被选中时，显示导航栏列表 */
+    }
+}
+
+.borders {
+    top: 15px;
+    display: flex;
+    position: relative;
+    height: 120px;
+    width: 400px;
+    border-style: dotted;
+    border-color: white;
+
+    border-radius: 15px;
+    justify-items: center;
+    justify-content: center;
+}
+
+.footer_content {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    color: #031fd5;
+}
+
+/*end*/
+/*注册界面*/
+.Login {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.register {
+    width: 350px;
+    height: 300px;
+    padding: 30px;
+    background-color: rgba(12, 12, 12, 0.47);
+    position: fixed;
+    top: 300px;
+    border-radius: 10px;
+    border: 1px solid #0f100f;
+    line-height: 30px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.register h1 {
+    text-align: center;
+}
+
+.input {
+    width: 250px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.34);
+}
+
+button {
+    text-align: center;
+    width: 42px;
+    height: 25px;
+    background-color: rgba(205, 208, 213, 0.3);
+    border-radius: 15px;
+}
+
+.position {
+    text-align: center;
+}
+
+.login-image-wrapper {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    overflow: hidden;
+}
+
+.login-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*About界面*/
+.news {
+    display: flex;
+    position: absolute;
+    height: 910px;
+    width: 100%;
+}
+
+/* 标题 */
+.news h3 {
+    position: relative;
+    font-size: 50px;
+    color: aliceblue;
+    font-weight: 400;
+    text-align: center;
+    margin: 183px auto 60px;
+    height: 66px;
+}
+
+/* 标题前图 */
+.news h3::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: -354px;
+    background: url("../图片/header_decoration.png");
+    height: 14px;
+    width: 385px;
+}
+
+/* 标题后图 */
+.news h3::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: -255px;
+    background: url("../图片/header_decoration.png");
+    height: 14px;
+    width: 385px;
+    transform: translate(calc(100% + 32px), -50%) rotateY(180deg); /* 将图片翻转为镜像 */
+}
+
+
+/* 新闻主体 */
+.news_main {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 110px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 400px;
+}
+
+.news_main img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+
+/* 轮播图 :start*/
+.carousel_map {
+    width: 640px;
+    height: 400px;
+}
+
+.slide {
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 鼠标放上去显示按钮 */
+.slide:hover .labels {
+    display: flex;
+}
+
+.slide:hover .list {
+    animation: none;
+}
+
+.slide input {
+    display: none;
+}
+
+/* 按钮位置 */
+.labels {
+    position: absolute;
+    bottom: 0.5em;
+    z-index: 1;
+    width: inherit;
+    justify-content: center;
+    display: none; /* 鼠标移开隐藏按钮 */
+}
+
+/* 按钮样式 */
+.labels label {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin: 0 0.3rem;
+    border: 0.1rem solid #fff;
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+/* 选择哪个按钮就有被点击的效果 */
+input[id=pic1]:checked ~ .labels label[for=pic1],
+input[id=pic2]:checked ~ .labels label[for=pic2],
+input[id=pic3]:checked ~ .labels label[for=pic3],
+input[id=pic4]:checked ~ .labels label[for=pic4] {
+    background-color: #ede9e9;
+    border: 0.1rem solid #fff;
+}
+
+/* 按钮控件选择图片 */
+input[id=pic1]:checked ~ .list {
+    transform: translate(calc(0 * 640px));
+}
+
+input[id=pic2]:checked ~ .list {
+    transform: translate(calc(-1 * 640px));
+}
+
+input[id=pic3]:checked ~ .list {
+    transform: translate(calc(-2 * 640px));
+}
+
+input[id=pic4]:checked ~ .list {
+    transform: translate(calc(-3 * 640px));
+}
+
+.list {
+    width: calc(5 * 640px);
+    height: inherit;
+    position: relative;
+    overflow: hidden;
+    /* 设置动画效果 */
+    animation: move 15s ease 1s infinite;
+}
+
+/* 动画关键帧轮播 */
+@keyframes move {
+    0% {
+        transform: translate(calc(0 * 640px));
+    }
+    25% {
+        transform: translate(calc(-1 * 640px));
+    }
+    50% {
+        transform: translate(calc(-2 * 640px));
+    }
+    75% {
+        transform: translate(calc(-3 * 640px));
+    }
+    100% {
+        transform: translate(calc(-4 * 640px));
+    }
+}
+
+.item {
+    width: 640px;
+    height: 400px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.item a {
+    padding: 0;
+    opacity: 1;
+}
+
+/* 轮播图 :end*/
+/*work*/
+.city {
+    top: 70px;
+    display: flex;
+    position: relative;
+    height: 1280px;
+    width: 100%;
+    background-size: cover;
+}
+
+.city_list {
+    height: 100%;
+    list-style-type: none;
+    width: 100%;
+}
+
+.city_list_item {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    display: flex;
+}
+
+.city_bg1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+.city_bg2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slideUp 2.1s ease-in-out forwards;
+}
+
+.city_bg3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slideUp 2.2s ease-in-out forwards;
+}
+
+.city_bg4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slideUp 2.3s ease-in-out forwards;
+}
+
+.city_end {
+    background-image: url("../图片/city_end.jpg");
+    position: absolute;
+    width: 100%;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideUp 2.4s ease-in-out forwards;
+}
+
+.city_end p {
+    display: flex;
+    font-size: 36px;
+    color: #fff;
+
+}
+
+.city_list img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);/*灰度值*/
+}
+
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    background-color: #0a0a0b;
+    color: rgba(255, 255, 255, 0.77); /* 按钮文字颜色 */
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-to-top-btn:hover {
+    background-color: rgba(13, 14, 14, 0.72); /* 鼠标悬停时改变背景颜色 */
+}
+
+/* 城市内容 :end */
+/*contact*/
+.contact {
+    display: flex;
+    position: relative;
+    height: 910px;
+    width: 100%;
+    justify-content: center;
+}
+
+.contact_img {
+    width: 1000px;
+    height: 700px;
+    position: fixed;
+    top: 60px;
+    border-radius: 15px;
+    border: 1px solid #0f100f;
+    background-color: #0f100f;
+    opacity: 0.9;
+    line-height: 30px;
+    text-align: center;
+    background-image: url("../图片/contact6.png");
+    background-size: cover;
+    animation: slideUp 2s ease-in-out;
+
+}
+.contact_img p{
+    margin-top: 30px;
+    font-size: 50px;
+}
+
+.contact_img textarea {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 30px;
+    color: #333;
+    background-color: #f9f9f9;
+    opacity: 0.8;
+    animation: slideUp 2.1s ease-in-out;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(100%); /* 初始位置在视口下方 */
+        opacity: 0; /* 初始透明度为0 */
+    }
+    to {
+        transform: translateY(0%); /* 结束位置在视口内 */
+        opacity: 1; /* 结束透明度为1 */
+    }
+}

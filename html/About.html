@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <script src="../javascript/script.js"></script>
+</head>
+<body>
+<!--导航栏-->
+<div class="header_bar">
+    <!--导航栏按键-->
+    <div class="header_left">
+        <span>LOGO</span>
+    </div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+    <label for="nav-toggle" class="menu-icon">☰</label>
+    <div class="header_navbar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <button class="button" id="toggleButton" onclick="changeColor(this)">深色模式</button>
+    <div class="header_right">
+        <!-- 登录/注册 -->
+        <a href="login.html" class="header_login">
+            <span>Login</span>
+        </a>
+    </div>
+</div>
+
+<div class="news">
+    <div class="login-image-wrapper">
+        <img src="../图片/About-1.png" alt="loginimage" class="login-image">
+    </div>
+    <h3>&nbsp;About</h3>
+    <!-- 新闻主题 -->
+    <div class="news_main">
+        <!-- 轮播图 -->
+        <div class="carousel_map">
+            <div class="slide">
+                <input type="radio" name="pic" id="pic1" checked/>
+                <input type="radio" name="pic" id="pic2"/>
+                <input type="radio" name="pic" id="pic3"/>
+                <input type="radio" name="pic" id="pic4"/>
+
+                <div class="labels">
+                    <label for="pic1"></label>
+                    <label for="pic2"></label>
+                    <label for="pic3"></label>
+                    <label for="pic4"></label>
+                </div>
+
+                <ul class="list">
+                    <li class="item">
+                            <img src="../图片/about1.jpg" style="height: 100%; width: 100%;" alt=""/>
+                    </li>
+                    <li class="item">
+                            <img src="../图片/about2.jpg" style="height: 100%; width: 100%;" alt=""/>
+                    </li>
+                    <li class="item">
+                            <img src="../图片/about3.jpg" style="height: 100%; width: 100%;" alt=""/>
+                    </li>
+                    <li class="item">
+                            <img src="../图片/work5.png" style="height: 100%; width: 100%;" alt=""/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header_footer" style="top: 910px">
+    <div class="borders">
+        <div class="footer_content">
+            @2024-2025 |BY-fsy
+            <br>
+            网页版权归fsy所有
+            <br>
+            Cease to struggle and you ease to live
+        </div>
+    </div>
+</div>
+</body>
+</html>

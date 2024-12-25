@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网页设计</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="javascript/script.js"></script>
+</head>
+<body>
+<div class="poster">
+    <div class="login-image-wrapper">
+        <img src="图片/About-bag.jpg" alt="loginimage" class="login-image">
+    </div>
+    <!--导航栏-->
+    <div class="header_bar">
+        <!--导航栏按键-->
+        <div class="header_left">
+            <span>LOGO</span>
+        </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <label for="nav-toggle" class="menu-icon">☰</label>
+        <div class="header_navbar">
+            <ul>
+            <li><a href="index.html">Home</a> </li>
+                <li><a href="html/About.html">About</a></li>
+                <li><a href="html/work.html">Work</a></li>
+                <li><a href="html/contact.html">Contact</a></li>
+            </ul>
+        </div>
+            <button class="button" id="toggleButton" onclick="changeColor(this)">深色模式</button>
+        <div class="header_right">
+            <!-- 登录/注册 -->
+            <a href="html/login.html" class="header_login">
+                <span>Login</span>
+            </a>
+        </div>
+    </div>
+    <div class="content">
+        <h2 style="text-align: center">欢迎来到我的个人网站</h2>
+        <br>
+        <h2 style="text-align: center">我时常回到童年，用一片童心思考问题，很多烦恼的问题就变得易解。</h2>
+        <button class="explore"><a href="html/About.html" style="text-decoration: none">explore</a></button>
+    </div>
+</div>
+<div class="header_footer">
+    <hr> <!--这里是水平线，放在内容的末尾 -->
+    <div class="borders">
+        <div class="footer_content">
+            @2024-2025 |BY-fsy
+            <br>
+            网页版权归fsy所有
+            <br>
+            Cease to struggle and you ease to live
+        </div>
+    </div>
+</div>
+</body>
+</html>
